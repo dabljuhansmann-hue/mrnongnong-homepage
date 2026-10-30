@@ -268,7 +268,7 @@ details.q p{margin:0 0 22px;color:#3A3A3A;max-width:680px}
   <div><p class="eb">Mehr</p><p style="margin:0;font-size:16px;line-height:1.8"><a href="#shop">Shop</a><br><a href="https://www.mrnongnong.at/handel" target="_blank" rel="noopener">Händler</a><br><a href="https://www.instagram.com/mrnongnong" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.youtube.com/@Mr.NONGNONG" target="_blank" rel="noopener">YouTube</a></p></div>
  </div>
  <p aria-hidden="true" class="h big" style="margin:44px 0 28px;font-size:120px;line-height:.9;letter-spacing:-0.03em">Gib Stoff.</p>
- <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px" class="mut"><span>© Mr. NongNong · Pflanzenkohle aus der Steiermark</span><nav aria-label="Rechtliches" style="display:flex;gap:24px"><a href="https://www.mrnongnong.at/impressum" target="_blank" rel="noopener" style="color:#A8A8A8">Impressum</a><a href="https://www.mrnongnong.at/datenschutz" target="_blank" rel="noopener" style="color:#A8A8A8">Datenschutz</a></nav></div>
+ <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px" class="mut"><span>© Mr. NongNong · Pflanzenkohle aus der Steiermark</span><nav aria-label="Rechtliches" style="display:flex;gap:24px"><a href="#impressum" style="color:#A8A8A8">Impressum</a><a href="#datenschutz" style="color:#A8A8A8">Datenschutz</a><a href="#agb" style="color:#A8A8A8">AGB</a><a href="#widerruf" style="color:#A8A8A8">Widerruf</a></nav></div>
 </div></footer>
 
 <div class="bb" id="bb">
@@ -321,8 +321,8 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function img(k){return 'img/'+k+'.webp';}
 
 /* ---------- Zustand ---------- */
-var S={cart:[],cat:'alle',sub:null,sort:'empf',mode:'beet',vol:100,qty:1,gi:0,ship:'ab',checkout:false};
-try{var saved=JSON.parse(localStorage.getItem('nn-cart')||'[]');if(Array.isArray(saved))S.cart=saved.filter(function(i){return P[i.id]&&i.q>0;});}catch(e){}
+var S={cart:[],cat:'alle',sub:null,sort:'empf',mode:'beet',vol:100,qty:1,gi:0,ship:'ab',busy:false,coMsg:''};
+try{var saved=JSON.parse(localStorage.getItem('nn-cart')||'[]');if(Array.isArray(saved))S.cart=saved.filter(function(i){return P[i.id]&&!P[i.id].sold&&i.q>0;});}catch(e){}
 function save(){try{localStorage.setItem('nn-cart',JSON.stringify(S.cart));}catch(e){}}
 function count(){return S.cart.reduce(function(a,i){return a+i.q;},0);}
 function add(id,q){
@@ -477,6 +477,7 @@ function vStart(){
  '<details class="q"><summary>Was ist der Unterschied zwischen „aufgeladen“ und „PUR“?<span class="pl" aria-hidden="true">+</span></summary><p>Die aufgeladene Kohle ist fix fertig: Pflanzenkohle-Splitter mit Naturdünger (NPK 2-3-2) und effektiven Mikroorganismen – einfach einarbeiten. PUR ist reine Pflanzenkohle (0 bis 8 mm Korngröße) und sollte vor der Verwendung selbst mit Nährstoffen aufgeladen werden.</p></details>'+
  '<details class="q"><summary>Wann und wie bringe ich sie aus?<span class="pl" aria-hidden="true">+</span></summary><p>Von Februar bis November, einmal im Jahr. Gleichmäßig untergraben oder oberflächlich verstreuen und mit Mulch bedecken. Im Topf gleichmäßig unter die Erde mischen.</p></details>'+
  '<details class="q"><summary>Funktioniert das auch im Topf und für Zimmerpflanzen?<span class="pl" aria-hidden="true">+</span></summary><p>Ja – die aufgeladene Kohle ist für Gemüsegarten und Zimmerpflanzen gedacht. Im Topf rechnest du 1 Liter auf 10 Liter Erde.</p></details>'+
+ '<details class="q"><summary>Wie bezahle ich?<span class="pl" aria-hidden="true">+</span></summary><p>Leg alles in den Warenkorb, wähle Abholung oder Versand und klick auf „Zur Kasse“.'+(VERSAND_INFO?' '+VERSAND_INFO:'')+' Du kommst auf die sichere Bezahlseite von Stripe und bezahlst mit Karte oder – je nach Gerät – mit Apple Pay oder Google Pay.</p></details>'+
  '<details class="q"><summary>Kann ich direkt in Niederwölz abholen?<span class="pl" aria-hidden="true">+</span></summary><p>Ja. Montag und Donnerstag von 9 bis 17 Uhr, Dienstag und Mittwoch nach Vereinbarung. <a href="#" class="todo" data-maps title="Google-Maps-Link wird noch eingetragen">Standort auf Google Maps →</a></p></details>'+
  '</div></div></section>';
 }
@@ -540,6 +541,7 @@ function vProdukt(id){
 function vCart(){
  var items=S.cart.filter(function(i){return P[i.id];});
  var sub=items.reduce(function(a,i){return a+P[i.id].price*i.q;},0);
+ var onlyFree=items.length>0&&items.every(function(i){return P[i.id].price===0;});
  var head='<section class="wrap" style="padding-top:40px;padding-bottom:96px"><nav aria-label="Brotkrumen" class="mut" style="font-size:14px;margin-bottom:20px"><a href="#shop">← Weiter einkaufen</a></nav><h1 class="h" style="font-size:clamp(36px,5vw,52px);margin-bottom:32px">Warenkorb</h1>';
  if(!items.length)return head+'<div class="card" style="padding:32px;text-align:center"><p class="h" style="font-size:20px;margin:0 0 8px">Dein Warenkorb ist leer</p><p class="mut" style="margin:0 0 18px">Gib deinem Boden Stoff – im Shop findest du alles.</p><a href="#shop" class="btn bd">Zum Shop →</a></div></section>';
  var shipBtn=function(k,t,d){return '<button type="button" class="ship" data-ship="'+k+'" aria-pressed="'+(S.ship===k)+'"><span class="dot" aria-hidden="true"></span><span><b style="display:block">'+t+'</b><span class="mut" style="font-size:14px">'+d+'</span></span></button>';};
@@ -549,12 +551,50 @@ function vCart(){
   '<b class="lt" style="font-size:18px;min-width:96px;text-align:right">'+(p.price?eur(p.price*i.q):'Gratis')+'</b></li>';}).join('')+'</ul>'+
  '<div class="sticky" style="position:sticky;top:100px"><div class="card" style="padding:28px;display:flex;flex-direction:column;gap:18px">'+
  '<fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px"><legend class="h" style="font-size:16px;margin-bottom:12px">Lieferung</legend>'+
- shipBtn('ab','Abholung in Niederwölz','Mo, Do 9–17 Uhr, Di, Mi nach Vereinbarung')+shipBtn('vs','Versand','Versandkosten werden an der Kasse berechnet')+'</fieldset>'+
+ shipBtn('ab','Abholung in Niederwölz','Mo, Do 9–17 Uhr, Di, Mi nach Vereinbarung')+shipBtn('vs','Versand',VERSAND_INFO||'Die Versandkosten siehst du auf der Bezahlseite, bevor du bezahlst')+'</fieldset>'+
  '<div style="border-top:1px solid #DEDEDA;padding-top:16px;display:flex;justify-content:space-between;align-items:baseline"><span>Zwischensumme</span><b class="h" style="font-size:28px">'+eur(sub)+'</b></div>'+
- '<button type="button" class="btn bd blk" id="checkout" style="min-height:56px;font-size:17px">Zur Kasse →</button>'+
- (S.checkout?'<p role="status" style="margin:0;padding:12px 14px;background:#EDEDEA;font-size:15px">Das ist eine Vorschau. Bezahlt wird später über den Shop auf mrnongnong.at.</p>':'')+
+ (onlyFree?'<p role="status" style="margin:0;padding:12px 14px;background:#EDEDEA;font-size:15px">Die Gratis-Lektüre gibt es zu jeder Bestellung dazu. Leg noch ein Produkt in den Warenkorb – oder <a href="mailto:info@mrnongnong.at?subject='+encodeURIComponent('Gratis-Lektüre „Der beste Boden“')+'">fordere sie per E-Mail an</a>.</p>'
+  :'<button type="button" class="btn bd blk" id="checkout" style="min-height:56px;font-size:17px"'+(S.busy?' disabled aria-busy="true"':'')+'>'+(S.busy?'Weiter zur Bezahlseite …':'Zur Kasse →')+'</button>'+
+   '<p class="mut" style="margin:0;font-size:14px;text-align:center">Sichere Zahlung über Stripe: Karte oder – je nach Gerät – Apple Pay und Google Pay. Es gelten die <a href="#agb">AGB</a> und die <a href="#widerruf">Widerrufsbelehrung</a>.</p>')+
+ (S.coMsg?'<p role="alert" style="margin:0;padding:12px 14px;background:#EDEDEA;font-size:15px">'+S.coMsg+'</p>':'')+
  '<p class="mut" style="margin:0;font-size:14px;text-align:center">Fragen zur Bestellung? <a href="tel:+436608743416" style="color:#000;font-weight:600">'+TEL+'</a></p>'+
  '</div></div></div></section>';
+}
+
+/* ---------- Kasse (Netlify-Funktion → Stripe Checkout) ---------- */
+var CHECKOUT_URL='/.netlify/functions/checkout';
+/* Versandkosten-Text für Warenkorb und FAQ – muss zu VERSAND_CENT / VERSAND_GROSS_CENT in Netlify passen.
+   Beispiel: 'Versand in Österreich: 6,90 €. PUR-Säcke nur zur Abholung.' Leer = Hinweis auf die Bezahlseite. */
+var VERSAND_INFO='';
+function isPreview(){return location.protocol==='file:'||/localhost|127\.0\.0\.1|github\.io|claude/.test(location.hostname);}
+function checkout(){
+ if(S.busy)return;
+ S.busy=true;S.coMsg='';render('warenkorb');
+ var items=S.cart.filter(function(i){return P[i.id];}).map(function(i){return {id:i.id,q:i.q};});
+ fetch(CHECKOUT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items,ship:S.ship})})
+ .then(function(r){return r.json().catch(function(){return {};}).then(function(d){return {ok:r.ok,status:r.status,d:d};});})
+ .then(function(x){
+  if(x.ok&&x.d.url){location.href=x.d.url;return;}
+  if(!(x.d&&x.d.error)&&isPreview()){S.busy=false;S.coMsg='Die Kasse ist in dieser Vorschau nicht aktiv. Sie funktioniert, sobald die Seite auf Netlify läuft. Bestellen geht jetzt schon per Telefon: '+TEL+'.';render('warenkorb');return;}
+  S.busy=false;S.coMsg=(x.d&&x.d.error)||'Die Kasse ist gerade nicht erreichbar. Bitte versuch es gleich noch einmal oder ruf an: '+TEL+'.';render('warenkorb');
+ })
+ .catch(function(){
+  S.busy=false;S.coMsg=isPreview()?'Die Kasse ist in dieser Vorschau nicht aktiv. Sie funktioniert, sobald die Seite auf Netlify läuft. Bestellen geht jetzt schon per Telefon: '+TEL+'.':'Die Kasse ist gerade nicht erreichbar. Bitte versuch es gleich noch einmal oder ruf an: '+TEL+'.';render('warenkorb');
+ });
+}
+var LEGAL={
+ impressum:['Impressum','<p><b>Mr. NongNong</b><br>Werner Hansmann<br>Hinterbichl 110<br>8831 Niederwölz, Österreich</p><p>Telefon: '+TEL+'<br>E-Mail: <a href="mailto:info@mrnongnong.at">info@mrnongnong.at</a></p><p class="todo" style="padding:12px;background:#EDEDEA">ENTWURF – bitte vor dem Start prüfen und ergänzen: Unternehmensgegenstand, ggf. UID-Nummer, Gewerbe/Behörde (GISA), Mitgliedschaft WKO, Berufsrecht, Hinweis zur Online-Streitbeilegung.</p>'],
+ datenschutz:['Datenschutzerklärung','<p class="todo" style="padding:12px;background:#EDEDEA">Platzhalter – der Text muss vor dem Start ergänzt werden. Er muss u. a. die Zahlungsabwicklung über Stripe, das Hosting bei Netlify, Google Fonts und die Speicherung des Warenkorbs im Browser nennen.</p>'],
+ agb:['Allgemeine Geschäftsbedingungen','<p class="todo" style="padding:12px;background:#EDEDEA">Platzhalter – AGB vor dem Start ergänzen (Vertragsschluss, Preise, Versand und Abholung, Zahlung, Gewährleistung).</p>'],
+ widerruf:['Widerrufsbelehrung','<p class="todo" style="padding:12px;background:#EDEDEA">Platzhalter – Widerrufsbelehrung samt Muster-Widerrufsformular nach FAGG vor dem Start ergänzen.</p>']
+};
+function vLegal(k){var L=LEGAL[k];return '<section class="wrap" style="padding-top:56px;padding-bottom:96px;max-width:820px"><nav aria-label="Brotkrumen" class="mut" style="font-size:14px;margin-bottom:20px"><a href="#start">Start</a> / <span aria-current="page">'+L[0]+'</span></nav><h1 class="h" style="font-size:clamp(32px,5vw,48px);margin-bottom:28px">'+L[0]+'</h1><div style="font-size:17px">'+L[1]+'</div></section>';}
+function vDanke(){
+ return '<section class="wrap" style="padding-top:72px;padding-bottom:104px;max-width:760px">'+
+ '<p class="eb">Bestellung</p><h1 class="h" style="font-size:clamp(36px,5vw,52px);margin-bottom:20px">Danke für deine Bestellung!</h1>'+
+ '<p style="font-size:19px;margin:0 0 12px">Die Zahlungsbestätigung kommt per E-Mail.</p>'+
+ '<p class="mut" style="margin:0 0 32px">Fragen zur Bestellung? Ruf mich an: <a href="tel:+436608743416" style="color:#000;font-weight:600">'+TEL+'</a></p>'+
+ '<div style="display:flex;gap:12px;flex-wrap:wrap"><a href="#start" class="btn bd">Zur Startseite</a><a href="#anwendung" class="btn bl">So wendest du die Kohle an →</a></div></section>';
 }
 
 /* ---------- Router ---------- */
@@ -565,10 +605,11 @@ function route(){
  if(SECTIONS.indexOf(h)>=0){view='start';scrollTo=h;}
  if(h==='kontakt'){scrollTo='kontakt';view=cur||'start';}
  if(view.indexOf('produkt-')===0&&!P[view.slice(8)])view='shop';
- if(['start','shop','warenkorb'].indexOf(view)<0&&view.indexOf('produkt-')!==0)view='start';
+ if(['start','shop','warenkorb','danke','impressum','datenschutz','agb','widerruf'].indexOf(view)<0&&view.indexOf('produkt-')!==0)view='start';
  if(view!==cur){
   if(view.indexOf('produkt-')===0){S.qty=1;S.gi=0;}
-  S.checkout=false;
+  S.coMsg='';S.busy=false;
+  if(view==='danke'){S.cart=[];save();}
   render(view);cur=view;
   if(!scrollTo)window.scrollTo(0,0);
  }
@@ -578,10 +619,10 @@ function route(){
 }
 function render(view){
  cur=view;
- var html=view==='shop'?vShop():view==='warenkorb'?vCart():view.indexOf('produkt-')===0?vProdukt(view.slice(8)):vStart();
+ var html=LEGAL[view]?vLegal(view):view==='shop'?vShop():view==='warenkorb'?vCart():view==='danke'?vDanke():view.indexOf('produkt-')===0?vProdukt(view.slice(8)):vStart();
  app.innerHTML=html;bind();upd();
  document.getElementById('bb').style.visibility=view==='warenkorb'?'hidden':'';
- document.title=(view==='shop'?'Shop':view==='warenkorb'?'Warenkorb':view.indexOf('produkt-')===0?P[view.slice(8)].n:'Startseite')+' · Mr. NongNong';
+ document.title=(view==='shop'?'Shop':view==='warenkorb'?'Warenkorb':view==='danke'?'Danke':LEGAL[view]?LEGAL[view][0]:view.indexOf('produkt-')===0?P[view.slice(8)].n:'Startseite')+' · Mr. NongNong';
 }
 function bind(){
  app.querySelectorAll('[data-add]').forEach(function(b){b.onclick=function(){var id=b.getAttribute('data-add');add(id,1);toast(P[id].n+' – im Warenkorb');b.innerHTML=ICON.check+' Im Warenkorb';setTimeout(function(){if(b.isConnected)b.innerHTML=P[id].price===0?'Gratis mitbestellen':ICON.cart+' In den Warenkorb';},1600);};});
@@ -601,13 +642,14 @@ function bind(){
  app.querySelectorAll('[data-dec]').forEach(function(b){b.onclick=function(){var it=S.cart.filter(function(i){return i.id===b.getAttribute('data-dec');})[0];it.q=Math.max(1,it.q-1);save();render('warenkorb');};});
  app.querySelectorAll('[data-del]').forEach(function(b){b.onclick=function(){var id=b.getAttribute('data-del');S.cart=S.cart.filter(function(i){return i.id!==id;});save();render('warenkorb');};});
  app.querySelectorAll('[data-ship]').forEach(function(b){b.onclick=function(){S.ship=b.getAttribute('data-ship');render('warenkorb');};});
- var co=app.querySelector('#checkout');if(co)co.onclick=function(){S.checkout=true;render('warenkorb');};
+ var co=app.querySelector('#checkout');if(co)co.onclick=checkout;
  document.querySelectorAll('[data-maps]').forEach(function(a){a.onclick=function(e){e.preventDefault();};});
 }
 document.getElementById('mOpen').onclick=function(){document.getElementById('menu').classList.add('open');};
 document.getElementById('mClose').onclick=function(){document.getElementById('menu').classList.remove('open');};
 document.querySelectorAll('#menu nav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open');if(a.getAttribute('href')===location.hash)route();});});
 document.querySelector('[data-from]').textContent='ab '+eur(FROM);
+window.addEventListener('pageshow',function(e){if(e.persisted&&S.busy){S.busy=false;render(cur);}});
 window.addEventListener('hashchange',route);
 route();
 })();
