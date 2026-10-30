@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mr. NongNong Startseite (Stil H)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Days+One&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;border-radius:0}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:#F6F8F7;color:#000;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+button,a,summary{touch-action:manipulation}
+button{font:inherit;color:inherit}
+input,select{font-size:16px}
+:root{--ease:cubic-bezier(0.23,1,0.32,1)}
+.h{font-family:'Days One',system-ui,sans-serif;font-weight:400;text-transform:uppercase;line-height:1.08;margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.eb{display:flex;align-items:center;gap:12px;margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.eb:before{content:"";width:16px;height:1px;background:currentColor}
+.mut{color:#5C5C5C}
+.sec{padding-top:104px;padding-bottom:104px}
+.h2{font-size:44px;margin-bottom:20px}
+.split{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;font:600 16px/1.2 'Schibsted Grotesk',sans-serif;text-decoration:none;border:0;cursor:pointer;background:transparent;color:#000;user-select:none;-webkit-user-select:none;transition:transform 160ms var(--ease),background-color 160ms ease,box-shadow 160ms ease}
+.btn:active{transform:scale(.97)}
+.btn.sm{min-height:44px;padding:0 16px;font-size:15px}
+.bd{background:#000;color:#fff!important}
+.bw{background:#fff;color:#000!important}
+.bl{box-shadow:inset 0 0 0 1px #000}
+.bdis{background:#E4E4E0;color:#6B6B6B!important;cursor:not-allowed}
+.blk{display:flex;width:100%}
+@media (hover:hover) and (pointer:fine){.bd:hover{background:#2B2B2B}.bw:hover{background:#ECECE8}.bl:hover{background:rgba(0,0,0,.05)}}
+
+/* Top + Header */
+.top{background:#0F0E12;color:#fff;font-size:14px}
+.top .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:9px;padding-bottom:9px}
+.top a{color:#fff;text-decoration:none}
+.hd{position:sticky;top:0;z-index:10;background:#F6F8F7;border-bottom:1px solid #000}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:12px;padding-bottom:12px}
+.logo img{width:52px;height:52px}
+.nav{display:flex;gap:4px}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;padding:12px 14px}
+.nav a.on{box-shadow:inset 0 -2px 0 #000}
+@media (hover:hover) and (pointer:fine){.nav a:hover{box-shadow:inset 0 -2px 0 #B2B2B2}.nav a.on:hover{box-shadow:inset 0 -2px 0 #000}}
+.cnt{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:11px;background:#fff;color:#000;font-size:12px;font-weight:700;padding:0 6px}
+.ib{width:48px;height:48px;border:1px solid #DEDEDA;background:#fff;display:inline-flex;align-items:center;justify-content:center;position:relative;color:#000;text-decoration:none;cursor:pointer;padding:0}
+.ib.dk{background:#000;border-color:#000;color:#fff}
+.ib .cnt{position:absolute;top:-7px;right:-7px;background:#000;color:#fff;min-width:20px;height:20px;font-size:11px}
+.mob{display:none}
+
+/* Mobile menu */
+.menu{position:fixed;inset:0;z-index:30;background:#0F0E12;color:#fff;display:none;flex-direction:column;padding:16px 20px calc(24px + env(safe-area-inset-bottom,0px))}
+.menu.open{display:flex}
+.menu nav{display:flex;flex-direction:column;margin-top:24px;border-top:1px solid #333}
+.menu nav a{font-family:'Days One',sans-serif;text-transform:uppercase;font-size:28px;text-decoration:none;padding:16px 0;border-bottom:1px solid #333}
+
+/* Cards / products */
+.card{background:#fff;box-shadow:inset 0 0 0 1px #E5E5E5}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #E5E5E5;border-left:1px solid #E5E5E5}
+.pc{position:relative;background:#fff;border-right:1px solid #E5E5E5;border-bottom:1px solid #E5E5E5;display:flex;flex-direction:column;padding:0 0 18px}
+.pc>a.ph{display:block;overflow:hidden}
+.pc .im{width:100%;aspect-ratio:1/1;object-fit:cover;background:#EDEDEA;transition:transform 160ms var(--ease)}
+@media (hover:hover) and (pointer:fine){.pc a.ph:hover .im{transform:scale(1.02)}}
+.pc .in{padding:0 16px;display:flex;flex-direction:column;flex:1}
+.pc .cat{margin:16px 0 2px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B}
+.pc .nm{font-family:'Days One',sans-serif;text-transform:uppercase;font-size:16px;line-height:1.2;margin:0 0 6px;text-decoration:none;color:#000;hyphens:auto;overflow-wrap:break-word}
+.pc .ds{font-size:14px;line-height:1.45;color:#5E5E5E;margin:0 0 14px}
+.pc .pr{margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:12px}
+.pc .pr b{font-size:20px}
+.pc .pr span{font-size:13px;color:#6B6B6B}
+.bdg{position:absolute;top:12px;left:12px;z-index:1;background:#000;color:#fff;font-size:12px;font-weight:700;padding:4px 9px}
+.bdg.w{background:#fff;color:#000}
+.sold .im{filter:grayscale(1);opacity:.55}
+
+/* Ticker */
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tk{display:flex;width:max-content;animation:tk 40s linear infinite}
+@media (prefers-reduced-motion:reduce){.tk{animation:none}.btn:active{transform:none}html{scroll-behavior:auto}}
+
+/* Hero */
+.hero{background:#0F0E12;color:#fff}
+.hero .wrap{display:grid;grid-template-columns:6fr 6fr;min-height:620px;padding-right:0}
+.hero .txt{padding:88px 56px 64px 0;display:flex;flex-direction:column;justify-content:space-between;gap:48px}
+.hero h1{font-size:62px;line-height:1.02;margin-bottom:22px}
+.hero .sub{font-size:30px;line-height:1.15;margin:0 0 26px}
+.hero .pic{position:relative;background:#F6F8F7}
+.hero .pic img{width:100%;height:100%;object-fit:cover}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #000}
+.steps>div{padding:28px 28px 8px 28px;border-left:1px solid #E5E5E5}
+.steps>div:first-child{padding-left:0;border-left:0}
+.steps .h{font-size:30px;margin-bottom:10px}
+
+/* Calculator */
+.calc{background:#0D0D0D;color:#fff;padding:36px;display:flex;flex-direction:column;gap:16px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg .btn{color:#fff;box-shadow:inset 0 0 0 1px #444}
+.seg .btn[aria-pressed="true"]{background:#fff;color:#000!important;box-shadow:none}
+.stp{display:flex;gap:6px}
+.stp button{background:#1F1F1F;color:#fff;width:56px;padding:0;font-size:24px;border:0;cursor:pointer;min-height:56px}
+.stp input{flex:1;min-width:0;background:#1F1F1F;border:0;color:#fff;text-align:center;font:400 30px 'Days One',sans-serif;min-height:56px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.calc .res{border-top:1px solid #333;padding-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:6px 12px}
+.calc .alt{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:15px;color:#BDBDBD;text-decoration:none;min-height:44px;border-top:1px solid #333;padding-top:10px}
+
+/* Spec list */
+.spec{display:grid;grid-template-columns:56px 1fr;gap:0 20px;padding:22px 0;border-top:1px solid #E5E5E5}
+.spec:last-child{border-bottom:1px solid #E5E5E5}
+.spec b{display:block;font-size:19px;margin-bottom:4px}
+
+/* Benefits */
+.ben{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #000}
+.ben article{padding:32px 28px 36px 0;border-bottom:1px solid #E5E5E5}
+.ben article:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid #E5E5E5}
+.ben .no{font-family:'Days One',sans-serif;font-size:44px;line-height:1;color:#000;display:block;margin-bottom:18px}
+.ben h3{font-size:22px;margin-bottom:14px}
+.ben p{margin:0 0 12px;font-size:16px;color:#333}
+.ben .you{display:block;font-size:15px;font-weight:600;color:#000;border-top:1px solid #000;padding-top:10px;margin-top:4px}
+
+/* FAQ */
+details.q{border-bottom:1px solid #E5E5E5}
+details.q summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:44px;padding:20px 0;font-weight:600;font-size:19px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary .pl{flex:0 0 28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:24px;transition:transform 200ms var(--ease)}
+details.q[open] summary .pl{transform:rotate(45deg)}
+details.q p{margin:0 0 22px;color:#3A3A3A;max-width:680px}
+
+/* Shop */
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;font-size:15px;font-weight:600;background:#fff;color:#000;box-shadow:inset 0 0 0 1px #E5E5E5;border:0;cursor:pointer;white-space:nowrap}
+.tab[aria-pressed="true"]{background:#000;color:#fff;box-shadow:none}
+.tab small{font-size:12px;opacity:.6;font-weight:500}
+.inp{background:#fff;border:1px solid #CFCFCA;min-height:44px;padding:0 12px;font:15px 'Schibsted Grotesk',sans-serif;color:#000}
+.bar{position:sticky;top:77px;z-index:4;background:#F6F8F7;padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid #DEDEDA}
+.choose{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.choose a{display:flex;gap:20px;align-items:center;padding:28px;text-decoration:none}
+.choose img{width:88px;aspect-ratio:4/5;object-fit:cover}
+.choose button{display:flex;gap:20px;align-items:center;padding:28px;text-align:left;border:0;font:inherit;color:inherit;cursor:pointer;width:100%;transition:box-shadow 160ms ease}
+.choose button[aria-pressed="true"]{box-shadow:inset 0 0 0 2px #000}
+@media (hover:hover) and (pointer:fine){.choose button:hover{box-shadow:inset 0 0 0 2px #000}}
+.chk{display:flex;gap:10px;align-items:flex-start}
+.chk svg{flex:0 0 auto;margin-top:4px}
+
+/* Product */
+.pd{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:start}
+.gal{display:grid;grid-template-columns:88px 1fr;gap:14px}
+.gal .th{display:flex;flex-direction:column;gap:10px}
+.gal .th button{padding:0;border:2px solid transparent;background:#fff;cursor:pointer}
+.gal .th button[aria-pressed="true"]{border-color:#000}
+.gal .th img{width:84px;aspect-ratio:765/900;object-fit:cover}
+.gal .main{position:relative;overflow:hidden}
+.gal .main img{width:100%;aspect-ratio:765/900;object-fit:cover;background:#EDEDEA}
+.qty{display:inline-flex;align-items:center;border:1px solid #CFCFCA;background:#fff;height:52px}
+.qty button{width:48px;height:100%;border:0;background:transparent;font-size:22px;cursor:pointer}
+.qty span{min-width:36px;text-align:center;font-weight:600}
+.box{background:#EDEDEA;padding:18px 20px;margin-bottom:22px}
+
+/* Cart */
+.cart{display:grid;grid-template-columns:7fr 5fr;gap:40px;align-items:start}
+.cl{list-style:none;margin:0;padding:0;border-top:1px solid #E5E5E5}
+.cl li{display:grid;grid-template-columns:88px 1fr auto auto;gap:20px;align-items:center;padding:16px 20px;background:#fff;box-shadow:inset 1px 0 0 #E5E5E5,inset -1px 0 0 #E5E5E5,inset 0 -1px 0 #E5E5E5}
+.cl img{width:88px;aspect-ratio:4/5;object-fit:cover}
+.lk{border:0;background:none;padding:10px 0;font:500 14px 'Schibsted Grotesk',sans-serif;text-decoration:underline;color:#5E5E5E;cursor:pointer}
+.ship{display:flex;gap:12px;align-items:flex-start;padding:16px;text-align:left;width:100%;border:0;background:#fff;cursor:pointer;box-shadow:inset 0 0 0 1px #DEDEDA}
+.ship[aria-pressed="true"]{box-shadow:inset 0 0 0 2px #000}
+.ship .dot{flex:0 0 20px;height:20px;border-radius:50%;border:1.5px solid #8A8A8A;margin-top:2px}
+.ship[aria-pressed="true"] .dot{border:6px solid #000}
+
+/* Video */
+.vid video{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;background:#1F1F1F}
+
+@media (max-width:980px){#wirkung .vid{max-width:none!important}#wirkung .vid video{aspect-ratio:4/5;max-height:55vh;object-position:center 40%}}
+
+/* Footer */
+.ft{background:#0F0E12;color:#fff}
+.ft a{color:#fff}
+.ft .mut{color:#A8A8A8}
+.ft .cols{display:grid;grid-template-columns:4fr 3fr 3fr 2fr;gap:48px;padding-bottom:64px;border-bottom:1px solid #333}
+.ft .eb{color:#A8A8A8}
+.todo{outline:1px dashed #A8A8A8;outline-offset:3px}
+
+/* Toast */
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;z-index:40;background:#0D0D0D;color:#fff;padding:10px 10px 10px 18px;display:flex;align-items:center;gap:16px;border:1px solid #333;font-size:15px;max-width:calc(100% - 24px)}
+.toast[hidden]{display:none}
+
+/* Bottom bar (mobile) */
+.bb{display:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+ .nav{display:none}.dsk{display:none!important}.mob{display:flex}
+ .top .wrap{justify-content:center;font-size:12.5px}.top .r{display:none}
+ .hd .wrap{padding-top:10px;padding-bottom:10px}
+ .logo img{width:44px;height:44px}
+ body{font-size:17px}
+ .wrap{padding:0 20px}
+ .sec{padding-top:72px;padding-bottom:72px}
+ .h2{font-size:32px}
+ .split,.pd,.cart{grid-template-columns:minmax(0,1fr)!important;gap:32px!important}
+ .split>*,.pd>*,.cart>*{min-width:0}
+ .hero .wrap{grid-template-columns:1fr;padding-right:20px;min-height:0}
+ .hero .txt{padding:48px 0 40px;gap:28px}
+ .hero h1{font-size:40px}
+ .hero .sub{font-size:22px}
+ .hero .pic{margin:0 -20px}
+ .steps{grid-template-columns:1fr}
+ .steps>div{padding:22px 0;border-left:0;border-bottom:1px solid #E5E5E5}
+ .pgrid{grid-template-columns:repeat(2,1fr)}
+ .pc .nm{font-size:13px}
+ .pc .pr{flex-direction:column;align-items:flex-start;gap:0}
+ .pc .pr b{font-size:18px}
+ .pc .in{padding:0 12px}
+ .ben{grid-template-columns:1fr}
+ .ben article,.ben article:not(:nth-child(3n+1)){padding:26px 0;border-left:0}
+ .ft .cols{grid-template-columns:1fr 1fr;gap:32px}
+ .ft .big{font-size:64px!important}
+ .bar{top:65px;flex-direction:column;align-items:stretch}
+ .tabs{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:2px}
+ .choose{grid-template-columns:1fr}
+ .choose a,.choose button{padding:18px}
+ .gal{grid-template-columns:1fr}
+ .gal .th{flex-direction:row;order:2}
+ .gal .th img{width:64px}
+ .cl li{grid-template-columns:64px 1fr;gap:12px}
+ .cl img{width:64px}
+ .cl .qty,.cl .lt{grid-column:2}
+ .calc{padding:24px}
+ .bb{display:flex;position:sticky;bottom:0;z-index:8;padding:10px 12px calc(14px + env(safe-area-inset-bottom,0px));gap:8px;background:linear-gradient(rgba(246,248,247,0),#F6F8F7 35%)}
+ .toast{bottom:calc(86px + env(safe-area-inset-bottom,0px));left:12px;right:12px;transform:none;max-width:none}
+ .sticky{position:static!important}
+}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span>Hergestellt in der Steiermark · Abholung ab Lager möglich</span><span class="r">Fragen? <a href="tel:+436608743416" style="font-weight:600">+43 660 874 3416</a> · <a href="mailto:info@mrnongnong.at">info@mrnongnong.at</a></span></div></div>
+<header class="hd"><div class="wrap">
+ <a href="#start" class="logo" aria-label="Mr. NongNong – zur Startseite"><img src="img/logo.webp" alt="Mr. NongNong" width="52" height="52"></a>
+ <nav class="nav" aria-label="Hauptmenü" id="nav">
+  <a href="#start" data-v="start">Start</a><a href="#shop" data-v="shop">Shop</a><a href="#wirkung">Wirkung</a><a href="#anwendung">Anwendung</a><a href="#ueber-mich">Über mich</a><a href="#kontakt">Kontakt</a>
+ </nav>
+ <a href="#warenkorb" class="btn bd sm dsk" style="gap:12px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg> Warenkorb <span class="cnt" data-cnt>0</span></a>
+ <div class="mob" style="gap:8px">
+  <a href="#warenkorb" class="ib" aria-label="Warenkorb"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cnt" data-cnt>0</span></a>
+  <button type="button" class="ib dk" aria-label="Menü öffnen" id="mOpen"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+ </div>
+</div></header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menü">
+ <div style="display:flex;justify-content:space-between;align-items:center"><img src="img/logo.webp" alt="" width="44" height="44" style="width:44px;height:44px"><button type="button" class="ib" id="mClose" aria-label="Menü schließen" style="background:#fff"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+ <nav aria-label="Hauptmenü mobil"><a href="#start">Start</a><a href="#shop">Shop</a><a href="#wirkung">Wirkung</a><a href="#anwendung">Anwendung</a><a href="#ueber-mich">Über mich</a><a href="#warenkorb">Warenkorb</a><a href="#kontakt">Kontakt</a></nav>
+ <a href="tel:+436608743416" class="btn bw" style="margin-top:auto">Frag Werner: +43 660 874 3416</a>
+</div>
+
+<main id="app"></main>
+
+<footer class="ft" id="kontakt"><div class="wrap" style="padding-top:88px;padding-bottom:40px">
+ <div class="cols">
+  <div><h2 class="h" style="font-size:24px;margin-bottom:12px">Fragen?</h2><p class="mut" style="margin:0 0 18px;font-size:16px">Ich helfe dir persönlich weiter.</p><a href="tel:+436608743416" class="btn bw">+43 660 874 3416</a></div>
+  <div><p class="eb">Abholung</p><p style="margin:0;font-size:16px;line-height:1.8">Mo, Do · 09:00–17:00<br>Di, Mi · nach Vereinbarung<br><a href="#" class="todo" data-maps title="Google-Maps-Link wird noch eingetragen">Standort auf Google Maps →</a></p></div>
+  <div><p class="eb">Kontakt</p><p style="margin:0;font-size:16px;line-height:1.8"><a href="mailto:info@mrnongnong.at">info@mrnongnong.at</a><br><a href="tel:+436608743416">+43 660 874 3416</a></p></div>
+  <div><p class="eb">Mehr</p><p style="margin:0;font-size:16px;line-height:1.8"><a href="#shop">Shop</a><br><a href="https://www.mrnongnong.at/handel" target="_blank" rel="noopener">Händler</a><br><a href="https://www.instagram.com/mrnongnong" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.youtube.com/@Mr.NONGNONG" target="_blank" rel="noopener">YouTube</a></p></div>
+ </div>
+ <p aria-hidden="true" class="h big" style="margin:44px 0 28px;font-size:120px;line-height:.9;letter-spacing:-0.03em">Gib Stoff.</p>
+ <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px" class="mut"><span>© Mr. NongNong · Pflanzenkohle aus der Steiermark</span><nav aria-label="Rechtliches" style="display:flex;gap:24px"><a href="#impressum" style="color:#A8A8A8">Impressum</a><a href="#datenschutz" style="color:#A8A8A8">Datenschutz</a><a href="#agb" style="color:#A8A8A8">AGB</a><a href="#widerruf" style="color:#A8A8A8">Widerruf</a></nav></div>
+</div></footer>
+
+<div class="bb" id="bb">
+ <a href="tel:+436608743416" class="ib" aria-label="Anrufen" style="width:56px;height:56px;flex:0 0 56px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+ <a href="#shop" class="btn bd" style="flex:1;min-height:56px;flex-direction:column;gap:0"><span>Pflanzenkohle kaufen →</span><span style="display:block;font-size:12px;font-weight:500;opacity:.75" data-from></span></a>
+</div>
+
+<div class="toast" id="toast" role="status" hidden><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span id="toastTxt" style="flex:1"></span><a href="#warenkorb" class="btn sm bw" style="min-height:40px">Zum Warenkorb</a></div>
+
+<script>
+(function(){
+'use strict';
+var TEL='+43 660 874 3416';
+var ICON={
+ cart:'<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>',
+ check:'<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>',
+ phone:'<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
+ pin:'<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>'
+};
+function ic(p){return '<svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>';}
+
+/* ---------- Produkte (Daten von mrnongnong.at) ---------- */
+var AUF_DESC='Meine aufgeladene Pflanzenkohle ist zur Gänze handgefertigt: Pflanzenkohle-Splitter, aufgeladen mit Naturdünger NPK 2-3-2 und effektiven Mikroorganismen. Sie verbessert die Bodenstruktur, speichert dauerhaft CO₂ und dient als Nährstoffspeicher für deine Gemüsepflanzen. Außerdem fördert sie das Wurzelwachstum, belüftet den Boden, speichert Wasser und reguliert den pH-Wert. Für Gemüsegarten und Zimmerpflanzen.';
+var AUF_USE='Beet: ab 6 Litern auf 100 Liter Erde, optimal 10 Liter. Topf: 1 Liter auf 10 Liter Erde. Zwischen Februar und November gleichmäßig untergraben oder aufstreuen und mit Mulch bedecken – einmal im Jahr wiederholen.';
+var AUF_PTS=['Pflanzenkohle-Splitter – fix fertig zum Einarbeiten','Aufgeladen mit Naturdünger NPK 2-3-2 und effektiven Mikroorganismen','Speichert Wasser und Nährstoffe, belüftet den Boden','Für Gemüsegarten und Zimmerpflanzen'];
+var PUR_DESC='Pflanzenkohle PUR ist reinste Pflanzenkohle im Rohzustand (0 bis 8 mm Korngröße). Durch die lange Lagerung sind die Kohlepartikel auf natürliche Weise mit Mikroorganismen besiedelt. Wichtig: Vor der Verwendung mit Nährstoffen aufladen.';
+var PUR_USE='Vor der Verwendung mit Nährstoffen aufladen. Danach wie die aufgeladene Kohle einsetzen: ab 6 Litern auf 100 Liter Erde, optimal 10 Liter.';
+var PUR_PTS=['Reine Pflanzenkohle, 0 bis 8 mm Korngröße','Zum Selbst-Aufladen mit Nährstoffen','In 20, 30 und 50 Litern – günstiger pro Liter'];
+var PD_DESC='Bio-Flüssigdünger aus Brennnesseljauche mit Kohlepartikeln, NPK 6-1-3. Nahezu geruchlos.';
+var ASK='Fragen zur Anwendung? Ruf mich an: '+TEL+'.';
+var P={
+ auf:{n:'Pflanzenkohle aufgeladen 5 l',cat:'kohle',catN:'Pflanzenkohle',price:32.5,unit:'€ 6,50 / l',perL:6.5,liters:5,imgs:['auf','foto5l'],badge:'Fix fertig',ds:'Pflanzenkohle-Splitter, aufgeladen mit Naturdünger NPK 2-3-2 und effektiven Mikroorganismen.',desc:AUF_DESC,use:AUF_USE,pts:AUF_PTS},
+ auf2:{n:'Pflanzenkohle aufgeladen 2 l',cat:'kohle',catN:'Pflanzenkohle',price:16.9,unit:'€ 8,45 / l',perL:8.45,liters:2,imgs:['auf2l','foto2l'],badge:'Zum Ausprobieren',ds:'Pflanzenkohle-Splitter, aufgeladen mit Naturdünger NPK 2-3-2 und effektiven Mikroorganismen.',desc:AUF_DESC,use:AUF_USE,pts:AUF_PTS},
+ p20:{n:'Pflanzenkohle PUR 20 l',cat:'kohle',catN:'Pflanzenkohle',price:55.9,unit:'€ 2,80 / l',perL:2.8,liters:20,imgs:['pur2','pur'],ds:'Reine Pflanzenkohle, 0 bis 8 mm Korngröße. Vor Verwendung mit Nährstoffen aufladen.',desc:PUR_DESC,use:PUR_USE,pts:PUR_PTS},
+ p30:{n:'Pflanzenkohle PUR 30 l',cat:'kohle',catN:'Pflanzenkohle',price:79.9,unit:'€ 2,66 / l',perL:2.66,liters:30,imgs:['pur2','pur'],ds:'Reine Pflanzenkohle, 0 bis 8 mm Korngröße. Vor Verwendung mit Nährstoffen aufladen.',desc:PUR_DESC,use:PUR_USE,pts:PUR_PTS},
+ p50:{n:'Pflanzenkohle PUR 50 l',cat:'kohle',catN:'Pflanzenkohle',price:90,unit:'€ 1,80 / l',perL:1.8,liters:50,imgs:['pur2','pur'],badge:'Bester Literpreis',ds:'Reine Pflanzenkohle, 0 bis 8 mm Korngröße. Vor Verwendung mit Nährstoffen aufladen.',desc:PUR_DESC,use:PUR_USE,pts:PUR_PTS},
+ pd1:{n:'Partikeldünger 1 l',cat:'duenger',catN:'Dünger',price:15.9,unit:'€ 15,90 / l',perL:15.9,imgs:['pd1'],ds:PD_DESC,desc:PD_DESC,use:'Die Dosierung steht auf dem Etikett. '+ASK,pts:['Bio-Flüssigdünger aus Brennnesseljauche','Mit Kohlepartikeln, NPK 6-1-3','Nahezu geruchlos']},
+ pd2:{n:'Partikeldünger 2 l',cat:'duenger',catN:'Dünger',price:28.9,unit:'€ 14,45 / l',perL:14.45,imgs:['pd2'],sold:true,ds:PD_DESC,desc:PD_DESC,use:'Die Dosierung steht auf dem Etikett. '+ASK,pts:['Bio-Flüssigdünger aus Brennnesseljauche','Mit Kohlepartikeln, NPK 6-1-3','Nahezu geruchlos']},
+ bon:{n:'Bonsai Substrat',cat:'bonsai',catN:'Bonsai',price:17.99,unit:'€ 6,00 / l',perL:6,imgs:['bonsai'],ds:'Substrat mit Pflanzenkohle für stabile, gesunde Wurzeln. NPK 7-1-3.',desc:'Substrat mit Pflanzenkohle für stabile, gesunde Wurzeln. NPK 7-1-3.',use:ASK,pts:['Substrat mit Pflanzenkohle','Für stabile, gesunde Wurzeln','NPK 7-1-3']},
+ womb:{n:'WOMB SAI',cat:'bonsai',catN:'Bonsai',price:18.9,unit:'€ 8,40 / 100 g',perL:null,imgs:['womb2','womb'],ds:'Pflanzenkohle-Tabs, aufgeladen mit Naturdünger. NPK 3-4-3.',desc:'Pflanzenkohle-Tabs, aufgeladen mit Naturdünger. NPK 3-4-3.',use:ASK,pts:['Pflanzenkohle-Tabs','Aufgeladen mit Naturdünger','NPK 3-4-3']},
+ buch:{n:'Der beste Boden',cat:'gratis',catN:'Gratis',price:0,unit:'Lektüre',perL:null,imgs:['buch'],badge:'Gratis',ds:'Kleine Lektüre über Terra Preta – die schwarze Erde vom Amazonas – und die Rolle der Pflanzenkohle.',desc:'Kleine Lektüre über Terra Preta – die schwarze Erde vom Amazonas – und die Rolle der Pflanzenkohle. Einfach gratis zu deiner Bestellung dazunehmen.',use:'Zum Lesen und Nachschlagen.',pts:['Über Terra Preta und Pflanzenkohle','Gratis zu deiner Bestellung']}
+};
+var ORDER=['auf','auf2','p20','p30','p50','pd1','pd2','bon','womb','buch'];
+var CATS=[['alle','Alle'],['kohle','Pflanzenkohle'],['duenger','Dünger'],['bonsai','Bonsai'],['gratis','Gratis']];
+var FROM=Math.min.apply(null,ORDER.filter(function(id){return P[id].cat==='kohle'&&!P[id].sold;}).map(function(id){return P[id].price;}));
+
+function eur(n){return '€ '+n.toFixed(2).replace('.',',');}
+function num(n){return String(Math.round(n*10)/10).replace('.',',');}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function img(k){return 'img/'+k+'.webp';}
+
+/* ---------- Zustand ---------- */
+var S={cart:[],cat:'alle',sub:null,sort:'empf',mode:'beet',vol:100,qty:1,gi:0,ship:'ab',busy:false,coMsg:''};
+try{var saved=JSON.parse(localStorage.getItem('nn-cart')||'[]');if(Array.isArray(saved))S.cart=saved.filter(function(i){return P[i.id]&&!P[i.id].sold&&i.q>0;});}catch(e){}
+function save(){try{localStorage.setItem('nn-cart',JSON.stringify(S.cart));}catch(e){}}
+function count(){return S.cart.reduce(function(a,i){return a+i.q;},0);}
+function add(id,q){
+ if(!P[id]||P[id].sold)return;
+ var ex=S.cart.filter(function(i){return i.id===id;})[0];
+ if(P[id].price===0)q=ex?0:1;
+ if(ex)ex.q+=q;else S.cart.push({id:id,q:q});
+ save();upd();
+}
+function addMany(list){list.forEach(function(x){add(x[0],x[1]);});
+ toast(list.map(function(x){return x[1]+' × '+P[x[0]].n;}).join(' + ')+' – im Warenkorb');}
+var tT;
+function toast(t){var el=document.getElementById('toast');document.getElementById('toastTxt').textContent=t;el.hidden=false;clearTimeout(tT);tT=setTimeout(function(){el.hidden=true;},4000);}
+function upd(){var c=count();[].forEach.call(document.querySelectorAll('[data-cnt]'),function(e){e.textContent=c;});}
+
+/* ---------- Rechner ---------- */
+var CALC={beet:{ratio:.06,def:100,step:25,tip:'1 m² Beet, 10 cm tief = 100 Liter Erde. Gerechnet wird mit 6 % Pflanzenkohle.'},
+          topf:{ratio:.1,def:10,step:5,tip:'Im Topf: 1 Liter Kohle auf 10 Liter Erde.'}};
+function bestAuf(L){ // günstigste Kombination aus 5 l und 2 l aufgeladen
+ var best=null;
+ for(var a=0;a<=Math.ceil(L/5)+1;a++){var b=Math.max(0,Math.ceil((L-5*a)/2-1e-9));var pr=a*P.auf.price+b*P.auf2.price,v=5*a+2*b;
+  if(v<L-1e-9||(a===0&&b===0))continue;
+  if(!best||pr<best.pr-1e-9||(Math.abs(pr-best.pr)<1e-9&&v<best.v))best={a:a,b:b,pr:pr,v:v};}
+ return best;
+}
+function bestPur(L){
+ var best=null;
+ for(var a=0;a<=Math.ceil(L/50)+1;a++)for(var b=0;b<=2;b++){var c=Math.max(0,Math.ceil((L-50*a-30*b)/20-1e-9));
+  var pr=a*P.p50.price+b*P.p30.price+c*P.p20.price,v=50*a+30*b+20*c;if(v<L-1e-9||(a+b+c===0))continue;
+  if(!best||pr<best.pr-1e-9||(Math.abs(pr-best.pr)<1e-9&&v<best.v))best={a:a,b:b,c:c,pr:pr,v:v};}
+ return best;
+}
+function calcVals(){
+ var m=CALC[S.mode],L=Math.round(S.vol*m.ratio*10)/10,au=L>0?bestAuf(L):null,pu=L>0?bestPur(L):null;
+ var auTxt=au?[au.a?au.a+' × Aufgeladen 5 l':'',au.b?au.b+' × Aufgeladen 2 l':''].filter(Boolean).join(' + '):'';
+ var puTxt=pu?[pu.a?pu.a+' × PUR 50 l':'',pu.b?pu.b+' × PUR 30 l':'',pu.c?pu.c+' × PUR 20 l':''].filter(Boolean).join(' + '):'';
+ var puId=pu?(pu.a?'p50':pu.b?'p30':'p20'):'p20';
+ return {L:L,au:au,auTxt:auTxt,pu:pu,puTxt:puTxt,puId:puId,opt:Math.round(S.vol*.1*10)/10};
+}
+function calcHTML(){
+ var v=calcVals(),m=CALC[S.mode];
+ return '<form class="calc" aria-label="Mengenrechner" onsubmit="return false">'+
+ '<p class="eb" style="color:#BDBDBD;margin:0">Mengenrechner</p>'+
+ '<fieldset style="border:0;margin:0;padding:0"><legend style="font-weight:600;margin-bottom:10px">Wo möchtest du sie einsetzen?</legend><div class="seg">'+
+ '<button type="button" class="btn" data-mode="beet" aria-pressed="'+(S.mode==='beet')+'">Beet / Hochbeet</button>'+
+ '<button type="button" class="btn" data-mode="topf" aria-pressed="'+(S.mode==='topf')+'">Topf</button></div></fieldset>'+
+ '<div><label for="vol" style="display:block;font-weight:600;margin-bottom:10px">Wie viel Erde? <span style="font-weight:400;color:#BDBDBD">(Liter)</span></label>'+
+ '<div class="stp"><button type="button" aria-label="Weniger Erde" data-vol="-1">−</button><input id="vol" type="number" inputmode="numeric" min="0" value="'+S.vol+'"><button type="button" aria-label="Mehr Erde" data-vol="1">+</button></div>'+
+ '<p style="margin:8px 0 0;font-size:15px;color:#BDBDBD">'+m.tip+'</p></div>'+
+ '<div class="res" aria-live="polite"><span style="color:#BDBDBD">Du brauchst</span><span class="h" style="font-size:60px;line-height:1" id="calcL">'+num(v.L)+' Liter</span>'+
+ (S.mode==='beet'?'<span style="width:100%;font-size:15px;color:#BDBDBD;text-align:right">Optimal wären '+num(v.opt)+' Liter (10 %).</span>':'')+'</div>'+
+ (v.au?'<button type="button" class="btn bw blk" id="calcAdd" style="justify-content:space-between;flex-wrap:wrap;gap:4px 12px;min-height:60px;padding-top:10px;padding-bottom:10px"><span style="text-align:left;line-height:1.3"><b style="display:block" id="calcAu">'+v.auTxt+'</b><span style="font-weight:400;font-size:15px;color:#5E5E5E">Fix fertig · in den Warenkorb</span></span><span id="calcAuP">'+eur(v.au.pr)+' →</span></button>'
+       :'<button type="button" class="btn bdis blk" disabled>Bitte Erdmenge eingeben</button>')+
+ (v.pu?'<a class="alt" href="#produkt-'+v.puId+'"><span>Oder selbst aufladen: <u style="color:#fff">'+v.puTxt+'</u></span><span style="color:#fff;white-space:nowrap">'+eur(v.pu.pr)+'</span></a>':'')+
+ '</form>';
+}
+function bindCalc(root){
+ var f=root.querySelector('.calc');if(!f)return;
+ f.querySelectorAll('[data-mode]').forEach(function(b){b.onclick=function(){S.mode=b.getAttribute('data-mode');S.vol=CALC[S.mode].def;rerenderCalc();};});
+ f.querySelectorAll('[data-vol]').forEach(function(b){b.onclick=function(){var st=CALC[S.mode].step;S.vol=Math.max(0,S.vol+st*(+b.getAttribute('data-vol')));rerenderCalc();};});
+ var inp=f.querySelector('#vol');inp.oninput=function(){S.vol=Math.max(0,parseInt(inp.value,10)||0);rerenderCalc(true);};
+ var ad=f.querySelector('#calcAdd');if(ad)ad.onclick=function(){var v=calcVals(),l=[];if(v.au.a)l.push(['auf',v.au.a]);if(v.au.b)l.push(['auf2',v.au.b]);addMany(l);};
+}
+function rerenderCalc(keepFocus){
+ var host=document.getElementById('calcHost');if(!host)return;
+ var pos=null,el=document.activeElement;if(keepFocus&&el&&el.id==='vol')pos=el.selectionStart;
+ host.innerHTML=calcHTML();bindCalc(host);
+ if(keepFocus){var i=host.querySelector('#vol');i.focus();try{i.setSelectionRange(pos,pos);}catch(e){}}
+}
+
+/* ---------- Bausteine ---------- */
+function card(id){
+ var p=P[id];
+ var btn=p.sold?'<button class="btn sm bdis blk" disabled>Ausverkauft</button>':
+  (p.price===0?'<button class="btn sm bl blk" data-add="'+id+'">Gratis mitbestellen</button>':
+  '<button class="btn sm bd blk" data-add="'+id+'" aria-label="In den Warenkorb: '+esc(p.n)+'">'+ICON.cart+' In den Warenkorb</button>');
+ var bdg=p.sold?'<span class="bdg w">Ausverkauft</span>':(p.badge?'<span class="bdg">'+p.badge+'</span>':'');
+ return '<article class="pc'+(p.sold?' sold':'')+'">'+bdg+'<a class="ph" href="#produkt-'+id+'" tabindex="-1" aria-hidden="true"><img class="im" src="'+img(p.imgs[0])+'" alt="" loading="lazy"></a>'+
+ '<div class="in"><p class="cat">'+p.catN+'</p><a href="#produkt-'+id+'" class="nm">'+esc(p.n).replace(/ (\d+) l$/,' $1&nbsp;l')+'</a><p class="ds">'+p.ds+'</p>'+
+ '<div class="pr"><b>'+(p.price?eur(p.price):'Gratis')+'</b><span>'+p.unit+'</span></div>'+btn+'</div></article>';
+}
+function reach(p){ // Reicht-für-Box für Pflanzenkohle
+ if(!p.liters)return '';
+ var m2=p.liters/6, topf=p.liters*10;
+ return '<div class="box"><b style="display:block;margin-bottom:2px">Reicht für rund '+num(m2)+' m² Beet</b><span class="mut" style="font-size:15px">(10 cm tief, 6 % Kohle) oder '+num(topf)+' Liter Topferde. <a href="#rechner" style="color:#000;font-weight:600;display:inline-block;padding:10px 0">Genau ausrechnen →</a></span></div>';
+}
+
+/* ---------- Ansichten ---------- */
+var BEN=[
+ ['Wasserspeicher','Die feinen Poren der Kohle saugen Wasser auf wie ein Schwamm und geben es langsam an die Wurzeln ab.','Du gießt seltener – und deine Pflanzen kommen besser durch heiße, trockene Wochen.'],
+ ['Nährstoffspeicher','Die riesige innere Oberfläche hält Nährstoffe fest, die sonst mit dem Regen in die Tiefe gespült würden.','Dünger wirkt länger. Was du in den Boden gibst, bleibt dort, wo die Wurzeln es brauchen.'],
+ ['Zuhause fürs Bodenleben','In den Poren finden Bakterien und Pilze geschützten Lebensraum. Aufgeladene Kohle bringt effektive Mikroorganismen gleich mit.','Dein Boden wird lebendig, krümelig und riecht nach Waldboden.'],
+ ['Lockere Struktur','Die Kohle-Splitter lockern schwere Böden auf und geben leichten Böden Halt. Wurzeln bekommen Luft.','Kräftigere Wurzeln, weniger Staunässe, leichteres Arbeiten im Beet.'],
+ ['Ausgeglichener pH-Wert','Pflanzenkohle wirkt leicht basisch und puffert saure Böden ab.','Deine Pflanzen kommen besser an die Nährstoffe heran, die schon im Boden sind.'],
+ ['Wirkt auf Dauer','Pflanzenkohle baut sich im Boden kaum ab. Der Kohlenstoff bleibt gebunden, statt als CO₂ in die Luft zu gehen.','Jedes Jahr, in dem du nachlegst, baust du deinen Boden weiter auf.']
+];
+function vStart(){
+ return ''+
+ '<section class="hero"><div class="wrap"><div class="txt"><div>'+
+ '<p class="lbl" style="margin:0 0 28px;color:#B2B2B2">Pflanzenkohle aus der Steiermark</p>'+
+ '<h1 class="h">Dein Boden trocknet aus?</h1><p class="h sub">Pflanzenkohle macht ihn zum Schwamm.</p>'+
+ '<p style="margin:0;font-size:19px;line-height:1.6;color:#D0D0D0;max-width:500px">Sie hält Wasser und Nährstoffe genau dort, wo die Wurzeln sie brauchen. Darum gehört sie in jeden Boden.</p></div>'+
+ '<div><a href="#shop" class="btn bw" style="min-height:60px;padding:0 32px;font-size:17px">Pflanzenkohle kaufen – ab '+eur(FROM)+' →</a></div></div>'+
+ '<div class="pic"><img src="img/auf2l.webp" alt="Packung Mr. NongNong Pflanzenkohle aufgeladen 2 Liter"><p class="lbl" style="position:absolute;left:0;bottom:0;margin:0;background:#0F0E12;color:#F6F8F7;padding:12px 16px">Pflanzenkohle aufgeladen 2 l · '+eur(P.auf2.price)+'</p></div></div></section>'+
+ '<div aria-hidden="true" style="background:#0D0D0D;color:#fff;overflow:hidden;padding:16px 0;white-space:nowrap"><div class="tk h" style="font-size:22px">'+
+ (function(){var t='Gib Stoff ✺ Lebendiger Boden ✺ Wasser speichern ✺ Mehr Ernte ✺ CO₂ binden ✺ Aus der Steiermark ✺ ';return '<span style="padding-right:24px">'+t+t+'</span><span style="padding-right:24px">'+t+t+'</span>';})()+'</div></div>'+
+
+ '<section id="anwendung" class="wrap sec"><div class="split"><div><p class="eb">Anwendung</p><h2 class="h h2">So einfach geht’s</h2><p class="mut" style="margin:0 0 36px;font-size:19px">Kein Fachwissen nötig. Drei Schritte, einmal im Jahr.</p></div>'+
+ '<div class="steps"><div><p class="lbl" style="margin:0 0 18px">Schritt 1</p><p class="h">6&nbsp;:&nbsp;100</p><p class="mut" style="margin:0;font-size:16px">Im Beet ab 6 Litern Kohle auf 100 Liter Erde – optimal sind 10 Liter. Im Topf 1 Liter auf 10 Liter.</p></div>'+
+ '<div><p class="lbl" style="margin:0 0 18px">Schritt 2</p><p class="h">Einarbeiten</p><p class="mut" style="margin:0;font-size:16px">Untergraben – oder aufstreuen und mit Mulch bedecken.</p></div>'+
+ '<div><p class="lbl" style="margin:0 0 18px">Schritt 3</p><p class="h">1× im Jahr</p><p class="mut" style="margin:0;font-size:16px">Zwischen Februar und November. Fertig.</p></div></div></div>'+
+ '<div class="split" style="margin-top:72px" id="rechner"><div><p class="h" style="font-size:28px;margin-bottom:14px">Wie viel brauchst du?</p><p class="mut" style="margin:0;font-size:17px">Gib ein, wie viel Erde dein Beet oder Topf hat. Der Rechner sagt dir, welche Packungen du brauchst – und was es kostet.</p></div>'+
+ '<div id="calcHost">'+calcHTML()+'</div></div></section>'+
+
+ '<section id="wirkung" style="background:#fff;border-top:1px solid #E5E5E5;border-bottom:1px solid #E5E5E5"><div class="wrap sec split">'+
+ '<div><p class="eb">Was im Boden passiert</p><h2 class="h h2">Sechs Gründe, warum dein Boden sie braucht</h2>'+
+ '<figure class="vid" style="margin:8px 0 0;max-width:360px"><video src="img/feldsalat.mp4" poster="img/feldsalat-poster.jpg" muted loop playsinline preload="none" aria-label="Video: Querschnitt durch ein Beet mit dem dichten Wurzelgeflecht von Feldsalat"></video><figcaption class="mut" style="font-size:14px;margin-top:8px">Querschnitt durch mein Beet: das Wurzelgeflecht vom Feldsalat.</figcaption></figure></div><div>'+
+ [['<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/>','Speichert Wasser','Nimmt bis zum Fünffachen ihres Gewichts an Wasser auf. Du gießt seltener.'],
+  ['<path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/>','Hält Nährstoffe fest','Was du düngst, bleibt in den Poren – statt ausgewaschen zu werden.'],
+  ['<circle cx="8" cy="9" r="3"/><circle cx="16" cy="8" r="2"/><circle cx="14" cy="16" r="3.5"/><circle cx="6.5" cy="17" r="1.5"/>','Bringt Leben in den Boden','Bis zu 300 m² Oberfläche pro Gramm – Lebensraum für unzählige Mikroorganismen.'],
+  ['<path d="M12 3v7"/><path d="M12 10c0 4-4 5-4 10"/><path d="M12 10c0 4 4 5 4 10"/><path d="M12 13c0 3-1 5-1 8"/><path d="M7 6h10"/>','Stärkt die Wurzeln','Fördert das Wurzelwachstum und belüftet den Boden.'],
+  ['<path d="M4 10h16l-2 9H6z"/><path d="M8 10l4-6 4 6"/>','Bringt mehr Ernte','Bessere Struktur, ausgeglichener pH-Wert – größere Erträge.'],
+  ['<path d="M5 20c0-8 5-14 14-15-1 9-7 14-14 15z"/><path d="M5 20 13 12"/>','Bindet CO₂','Jedes Kilo bindet mehr als 2,5 kg CO₂. Dauerhaft im Boden.']
+ ].map(function(r){return '<div class="spec"><span style="padding-top:2px">'+ic(r[0])+'</span><span><b>'+r[1]+'</b><span class="mut" style="font-size:16px">'+r[2]+'</span></span></div>';}).join('')+
+ '</div></div></section>'+
+
+ '<section id="nahrungsnetz" style="background:#0F0E12;color:#fff"><div class="wrap" style="padding-top:104px;padding-bottom:88px">'+
+ '<div class="split" style="grid-template-columns:7fr 5fr;align-items:end;margin-bottom:48px"><div><p class="eb" style="color:#B2B2B2">Das Nahrungsnetz</p><h2 class="h h2" style="margin:0">Alles fängt beim Boden und einer gesunden Wurzel an.</h2></div><p style="margin:0;color:#D0D0D0;font-size:18px">Aufgeladene Pflanzenkohle fügt sich besonders gut in das Nahrungsnetz des Bodens ein. Pflanzen lieben das.</p></div>'+
+ '<img src="img/nahrungsnetz.webp" alt="Gezeichnetes Nahrungsnetz im Boden: Sonnenenergie und CO₂, Pflanze mit Wurzel, organisches Material, Bodenlebewesen, Bakterien und Pilze, Mykorrhiza-Pilzfäden an der Wurzel und die poröse Pflanzenkohle unter dem Mikroskop" style="width:100%;height:auto;aspect-ratio:1365/768">'+
+ '</div></section>'+
+
+ '<section class="wrap sec"><div style="display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px;flex-wrap:wrap"><div><p class="eb">Shop</p><h2 class="h h2" style="margin:0">Wähle deine Größe</h2></div><a href="#shop" style="font-weight:600;padding:12px 0">Alle '+ORDER.length+' Produkte →</a></div>'+
+ '<div class="pgrid">'+['auf2','auf','p50','pd1'].map(card).join('')+'</div></section>'+
+
+ '<section id="vorteile" style="background:#fff;border-top:1px solid #E5E5E5;border-bottom:1px solid #E5E5E5"><div class="wrap sec">'+
+ '<div class="split" style="align-items:end;margin-bottom:48px"><div><p class="eb">Die Vorteile im Detail</p><h2 class="h h2" style="margin:0">Was Pflanzenkohle in deinem Boden leistet</h2></div><p class="mut" style="margin:0;font-size:18px">Pflanzenkohle ist kein Dünger, sondern ein Bodenverbesserer. Sie macht den Boden zu einem besseren Zuhause für Wasser, Nährstoffe und Leben – und das auf Dauer.</p></div>'+
+ '<div class="ben">'+BEN.map(function(b,i){return '<article><span class="no" aria-hidden="true">0'+(i+1)+'</span><h3 class="h">'+b[0]+'</h3><p>'+b[1]+'</p><span class="you">Was du merkst: '+b[2]+'</span></article>';}).join('')+'</div>'+
+ '</div></section>'+
+
+ '<section id="ueber-mich" class="wrap sec"><div class="split" style="grid-template-columns:5fr 7fr;gap:64px;align-items:center">'+
+ '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start"><img src="img/pers.webp" alt="Porträt von Werner, Mr. NongNong" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;background:#E5E5E5">'+
+ '<figure class="vid" style="margin:0"><video src="img/pyrolyse.mp4" poster="img/pyrolyse-poster.jpg" muted loop playsinline preload="none" aria-label="Video: Pyrolysefeuer, in dem Holz zu Pflanzenkohle wird"></video><figcaption class="mut" style="font-size:14px;margin-top:8px">Pyrolyse: So entsteht meine Pflanzenkohle.</figcaption></figure></div>'+
+ '<div><p class="eb">Über mich</p><h2 class="h h2" style="margin-bottom:24px">Gemacht von einem, der Böden kennt.</h2>'+
+ '<p style="margin:0 0 28px;font-size:19px;color:#333;max-width:640px">Ich stelle Pflanzenkohle her und lade sie mit Nährstoffen und Mikroorganismen auf. Dann arbeite ich sie in den Boden ein und bringe so die Bodenqualität auf höchstes Niveau.</p>'+
+ '<blockquote style="margin:0 0 32px;padding:20px 0;border-top:1px solid #000;border-bottom:1px solid #000;font-size:24px;line-height:1.35;font-weight:500">„Wer fragt, ist ein Narr für eine Minute. Wer nicht fragt, bleibt es fürs Leben.“</blockquote>'+
+ '<a href="tel:+436608743416" class="btn bd">'+ICON.phone+' Frag Werner: '+TEL+'</a></div></div></section>'+
+
+ '<section id="fragen" style="border-top:1px solid #E5E5E5"><div class="wrap sec split" style="grid-template-columns:4fr 8fr;gap:56px">'+
+ '<div><p class="eb">Fragen &amp; Antworten</p><h2 class="h h2" style="font-size:40px">Kurz gefragt.</h2></div>'+
+ '<div style="border-top:1.5px solid #000">'+
+ '<details class="q" open><summary>Wie viel Pflanzenkohle brauche ich?<span class="pl" aria-hidden="true">+</span></summary><p>Ab 6 Litern auf 100 Liter Erde merkst du einen Unterschied in der Bodenqualität. Optimal empfehle ich 10 Liter auf 100 Liter Erde. Im Topf nimmst du 1 Liter auf 10 Liter Erde. Der <a href="#rechner">Mengenrechner</a> rechnet mit 6 % – also 6 Liter pro Quadratmeter Beet bei 10 cm Tiefe.</p></details>'+
+ '<details class="q"><summary>Was ist der Unterschied zwischen „aufgeladen“ und „PUR“?<span class="pl" aria-hidden="true">+</span></summary><p>Die aufgeladene Kohle ist fix fertig: Pflanzenkohle-Splitter mit Naturdünger (NPK 2-3-2) und effektiven Mikroorganismen – einfach einarbeiten. PUR ist reine Pflanzenkohle (0 bis 8 mm Korngröße) und sollte vor der Verwendung selbst mit Nährstoffen aufgeladen werden.</p></details>'+
+ '<details class="q"><summary>Wann und wie bringe ich sie aus?<span class="pl" aria-hidden="true">+</span></summary><p>Von Februar bis November, einmal im Jahr. Gleichmäßig untergraben oder oberflächlich verstreuen und mit Mulch bedecken. Im Topf gleichmäßig unter die Erde mischen.</p></details>'+
+ '<details class="q"><summary>Funktioniert das auch im Topf und für Zimmerpflanzen?<span class="pl" aria-hidden="true">+</span></summary><p>Ja – die aufgeladene Kohle ist für Gemüsegarten und Zimmerpflanzen gedacht. Im Topf rechnest du 1 Liter auf 10 Liter Erde.</p></details>'+
+ '<details class="q"><summary>Wie bezahle ich?<span class="pl" aria-hidden="true">+</span></summary><p>Leg alles in den Warenkorb, wähle Abholung oder Versand und klick auf „Zur Kasse“.'+(VERSAND_INFO?' '+VERSAND_INFO:'')+' Du kommst auf die sichere Bezahlseite von Stripe und bezahlst mit Karte oder – je nach Gerät – mit Apple Pay oder Google Pay.</p></details>'+
+ '<details class="q"><summary>Kann ich direkt in Niederwölz abholen?<span class="pl" aria-hidden="true">+</span></summary><p>Ja. Montag und Donnerstag von 9 bis 17 Uhr, Dienstag und Mittwoch nach Vereinbarung. <a href="#" class="todo" data-maps title="Google-Maps-Link wird noch eingetragen">Standort auf Google Maps →</a></p></details>'+
+ '</div></div></section>';
+}
+
+function vShop(){
+ var SUB={auf:['auf2','auf'],pur:['p20','p30','p50']};
+ var ids=S.sub?SUB[S.sub].slice():ORDER.filter(function(id){return S.cat==='alle'||P[id].cat===S.cat;});
+ if(S.sort==='auf')ids.sort(function(a,b){return P[a].price-P[b].price;});
+ if(S.sort==='ab')ids.sort(function(a,b){return P[b].price-P[a].price;});
+ if(S.sort==='lp')ids.sort(function(a,b){return (P[a].perL==null?1e9:P[a].perL)-(P[b].perL==null?1e9:P[b].perL);});
+ var n=function(c){return c==='alle'?ORDER.length:ORDER.filter(function(id){return P[id].cat===c;}).length;};
+ return '<section class="wrap" style="padding-top:48px;padding-bottom:32px">'+
+ '<nav aria-label="Brotkrumen" class="mut" style="font-size:14px;margin-bottom:20px"><a href="#start">Start</a> / <span aria-current="page">Shop</span></nav>'+
+ '<div class="split" style="grid-template-columns:7fr 5fr;gap:32px;align-items:end"><div><h1 class="h" style="font-size:clamp(40px,6vw,60px);margin-bottom:14px">Shop</h1><p style="margin:0;font-size:20px;color:#3A3A3A;max-width:620px">Welche Kohle passt zu dir? Sofort loslegen oder selbst aufladen.</p></div>'+
+ '<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:500">'+
+ '<li class="chk">'+ICON.check+'Hergestellt in der Steiermark</li><li class="chk">'+ICON.pin+'Abholung ab Lager möglich</li><li class="chk">'+ICON.phone+'Beratung: <a href="tel:+436608743416">'+TEL+'</a></li></ul></div>'+
+ '<div class="choose"><button type="button" class="card" data-sub="auf" aria-pressed="'+(S.sub==='auf')+'"><img src="img/auf2l.webp" alt=""><span><span class="bdg" style="position:static;display:inline-block;margin-bottom:8px">Empfohlen für Einsteiger</span><b class="h" style="display:block;font-size:18px;margin-bottom:4px">Ich will sofort loslegen</b><span class="mut" style="font-size:15px">→ Pflanzenkohle <b style="color:#000">aufgeladen</b> in 2 oder 5 Litern: fix fertig mit Dünger und Mikroorganismen.</span></span></button>'+
+ '<button type="button" class="card" data-sub="pur" aria-pressed="'+(S.sub==='pur')+'"><img src="img/pur2.webp" alt=""><span><b class="h" style="display:block;font-size:18px;margin-bottom:4px">Ich lade selbst auf</b><span class="mut" style="font-size:15px">→ Pflanzenkohle <b style="color:#000">PUR</b>: reine Kohle in 20, 30 oder 50 Litern – günstiger pro Liter.</span></span></button></div></section>'+
+ '<section class="wrap" id="produkte" style="padding-bottom:96px;scroll-margin-top:80px"><div class="bar"><div class="tabs" role="group" aria-label="Kategorien">'+
+ CATS.map(function(c){return '<button type="button" class="tab" data-cat="'+c[0]+'" aria-pressed="'+(!S.sub&&S.cat===c[0])+'">'+c[1]+' <small>'+n(c[0])+'</small></button>';}).join('')+'</div>'+
+ '<div style="display:flex;gap:8px;align-items:center"><label for="sort" class="mut" style="font-size:14px">Sortieren</label><select id="sort" class="inp">'+
+ [['empf','Empfohlen'],['auf','Preis aufsteigend'],['ab','Preis absteigend'],['lp','Literpreis']].map(function(o){return '<option value="'+o[0]+'"'+(S.sort===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('')+'</select></div></div>'+
+ '<p id="shopRes" tabindex="-1" aria-live="polite" class="mut" style="outline:none;margin:16px 0 20px;font-size:15px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">'+(S.sub?'<b style="color:#000">'+(S.sub==='auf'?'Pflanzenkohle aufgeladen':'Pflanzenkohle PUR')+':</b> ':'')+ids.length+(ids.length===1?' Produkt':' Produkte')+(S.sub?' <button type="button" class="lk" data-sub="" style="padding:4px 0">Alle Produkte zeigen</button>':'')+'</p>'+
+ '<div class="pgrid">'+ids.map(card).join('')+'</div></section>'+
+ '<section style="background:#fff;border-top:1px solid #DEDEDA"><div class="wrap sec"><p class="eb">Kurz erklärt</p><h2 class="h h2" style="font-size:40px;margin-bottom:36px">Wie viel? Wann? Wie?</h2>'+
+ '<div class="pgrid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">'+
+ '<div class="pc" style="padding:28px"><h3 class="h" style="font-size:20px;margin-bottom:10px">Wie viel?</h3><p style="margin:0">Ab 6 Litern Pflanzenkohle auf 100 Liter Erde, optimal 10 Liter. Im Topf 1 Liter auf 10 Liter Erde.</p><a href="#rechner" style="display:inline-block;margin-top:14px;font-weight:600;padding:8px 0">Zum Mengenrechner →</a></div>'+
+ '<div class="pc" style="padding:28px"><h3 class="h" style="font-size:20px;margin-bottom:10px">Wann?</h3><p style="margin:0">Am besten zwischen Februar und November ausbringen – einmal im Jahr wiederholen.</p></div>'+
+ '<div class="pc" style="padding:28px"><h3 class="h" style="font-size:20px;margin-bottom:10px">Wie?</h3><p style="margin:0">Gleichmäßig untergraben oder oberflächlich verstreuen und mit Mulch bedecken. Im Topf gleichmäßig unter die Erde mischen.</p></div>'+
+ '</div></div></section>';
+}
+
+function vProdukt(id){
+ var p=P[id];if(!p)return vShop();
+ var gi=Math.min(S.gi,p.imgs.length-1);
+ var thumbs=p.imgs.length>1?'<div class="th">'+p.imgs.map(function(k,i){return '<button type="button" data-gi="'+i+'" aria-label="Bild '+(i+1)+'" aria-pressed="'+(i===gi)+'"><img src="'+img(k)+'" alt=""></button>';}).join('')+'</div>':'';
+ var bdg=p.sold?'<span class="bdg w">Ausverkauft</span>':(p.badge?'<span class="bdg">'+p.badge+'</span>':'');
+ var buy=p.sold?'<button class="btn bdis blk" disabled style="min-height:56px">Ausverkauft</button>':
+  '<div style="display:flex;gap:10px;margin-bottom:12px"><div class="qty" role="group" aria-label="Menge"><button type="button" aria-label="Weniger" data-q="-1">−</button><span aria-live="polite" id="qv">'+S.qty+'</span><button type="button" aria-label="Mehr" data-q="1">+</button></div>'+
+  '<button type="button" class="btn bd" id="pAdd" style="flex:1;min-height:56px;font-size:17px">'+ICON.cart+(p.price===0?' Gratis mitbestellen':' In den Warenkorb')+'</button></div>';
+ var rel=ORDER.filter(function(x){return x!==id&&!P[x].sold;});
+ rel=rel.filter(function(x){return P[x].cat!==p.cat;}).slice(0,2).concat(rel.filter(function(x){return P[x].cat===p.cat;}).slice(0,2));
+ while(rel.length<4){var more=ORDER.filter(function(x){return x!==id&&rel.indexOf(x)<0&&!P[x].sold;});if(!more.length)break;rel.push(more[0]);}
+ return '<section class="wrap" style="padding-top:36px;padding-bottom:88px">'+
+ '<nav aria-label="Brotkrumen" class="mut" style="font-size:14px;margin-bottom:24px"><a href="#start">Start</a> / <a href="#shop">Shop</a> / <span aria-current="page">'+esc(p.n)+'</span></nav>'+
+ '<div class="pd"><div class="gal">'+thumbs+'<div class="main card"'+(p.imgs.length>1?'':' style="grid-column:1/-1"')+'>'+bdg+'<img src="'+img(p.imgs[gi])+'" alt="'+esc('Mr. NongNong '+p.n)+'"'+(p.sold?' style="filter:grayscale(1);opacity:.6"':'')+'></div></div>'+
+ '<div class="sticky" style="position:sticky;top:100px"><p class="eb mut" style="margin-bottom:10px">'+p.catN+'</p><h1 class="h" style="font-size:clamp(30px,4vw,40px);margin-bottom:16px">'+esc(p.n)+'</h1>'+
+ '<p style="margin:0 0 4px"><b style="font-size:32px">'+(p.price?eur(p.price):'Gratis')+'</b> <span class="mut" style="font-size:15px;margin-left:8px">'+p.unit+'</span></p>'+
+ '<p class="mut" style="margin:0 0 24px;font-size:14px">Abholung in Niederwölz möglich</p>'+
+ '<ul style="list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:10px;font-size:16px">'+p.pts.map(function(t){return '<li class="chk">'+ICON.check+'<span>'+t+'</span></li>';}).join('')+'</ul>'+
+ reach(p)+buy+
+ '<p class="mut" style="margin:0;font-size:14px">Fragen zum Produkt? <a href="tel:+436608743416" style="color:#000;font-weight:600">'+TEL+'</a></p>'+
+ '<div style="margin-top:32px;border-top:1.5px solid #000">'+
+ '<details class="q" open><summary>Beschreibung<span class="pl" aria-hidden="true">+</span></summary><p style="font-size:16px">'+p.desc+'</p></details>'+
+ '<details class="q"><summary>Anwendung<span class="pl" aria-hidden="true">+</span></summary><p style="font-size:16px">'+p.use+'</p></details>'+
+ '<details class="q"><summary>Abholung &amp; Kontakt<span class="pl" aria-hidden="true">+</span></summary><p style="font-size:16px">Abholung in Niederwölz: Mo, Do 9–17 Uhr, Di, Mi nach Vereinbarung. <a href="#" class="todo" data-maps title="Google-Maps-Link wird noch eingetragen">Standort auf Google Maps →</a><br>Telefon: '+TEL+'</p></details>'+
+ '</div></div></div></section>'+
+ '<section style="background:#fff;border-top:1px solid #DEDEDA"><div class="wrap" style="padding-top:80px;padding-bottom:88px"><h2 class="h" style="font-size:32px;margin-bottom:28px">Passt gut dazu</h2><div class="pgrid">'+rel.slice(0,4).map(card).join('')+'</div></div></section>';
+}
+
+function vCart(){
+ var items=S.cart.filter(function(i){return P[i.id];});
+ var sub=items.reduce(function(a,i){return a+P[i.id].price*i.q;},0);
+ var onlyFree=items.length>0&&items.every(function(i){return P[i.id].price===0;});
+ var head='<section class="wrap" style="padding-top:40px;padding-bottom:96px"><nav aria-label="Brotkrumen" class="mut" style="font-size:14px;margin-bottom:20px"><a href="#shop">← Weiter einkaufen</a></nav><h1 class="h" style="font-size:clamp(36px,5vw,52px);margin-bottom:32px">Warenkorb</h1>';
+ if(!items.length)return head+'<div class="card" style="padding:32px;text-align:center"><p class="h" style="font-size:20px;margin:0 0 8px">Dein Warenkorb ist leer</p><p class="mut" style="margin:0 0 18px">Gib deinem Boden Stoff – im Shop findest du alles.</p><a href="#shop" class="btn bd">Zum Shop →</a></div></section>';
+ var shipBtn=function(k,t,d){return '<button type="button" class="ship" data-ship="'+k+'" aria-pressed="'+(S.ship===k)+'"><span class="dot" aria-hidden="true"></span><span><b style="display:block">'+t+'</b><span class="mut" style="font-size:14px">'+d+'</span></span></button>';};
+ return head+'<div class="cart"><ul class="cl">'+items.map(function(i){var p=P[i.id];return '<li><a href="#produkt-'+i.id+'"><img src="'+img(p.imgs[0])+'" alt=""></a>'+
+  '<div style="min-width:0"><a href="#produkt-'+i.id+'" class="h" style="font-size:17px;text-decoration:none;display:block;margin:0 0 4px">'+esc(p.n)+'</a><button type="button" class="lk" data-del="'+i.id+'">Entfernen</button></div>'+
+  '<div class="qty" role="group" aria-label="Menge"><button type="button" aria-label="Weniger" data-dec="'+i.id+'">−</button><span>'+i.q+'</span><button type="button" aria-label="Mehr" data-inc="'+i.id+'">+</button></div>'+
+  '<b class="lt" style="font-size:18px;min-width:96px;text-align:right">'+(p.price?eur(p.price*i.q):'Gratis')+'</b></li>';}).join('')+'</ul>'+
+ '<div class="sticky" style="position:sticky;top:100px"><div class="card" style="padding:28px;display:flex;flex-direction:column;gap:18px">'+
+ '<fieldset style="border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px"><legend class="h" style="font-size:16px;margin-bottom:12px">Lieferung</legend>'+
+ shipBtn('ab','Abholung in Niederwölz','Mo, Do 9–17 Uhr, Di, Mi nach Vereinbarung')+shipBtn('vs','Versand',VERSAND_INFO||'Die Versandkosten siehst du auf der Bezahlseite, bevor du bezahlst')+'</fieldset>'+
+ '<div style="border-top:1px solid #DEDEDA;padding-top:16px;display:flex;justify-content:space-between;align-items:baseline"><span>Zwischensumme</span><b class="h" style="font-size:28px">'+eur(sub)+'</b></div>'+
+ (onlyFree?'<p role="status" style="margin:0;padding:12px 14px;background:#EDEDEA;font-size:15px">Die Gratis-Lektüre gibt es zu jeder Bestellung dazu. Leg noch ein Produkt in den Warenkorb – oder <a href="mailto:info@mrnongnong.at?subject='+encodeURIComponent('Gratis-Lektüre „Der beste Boden“')+'">fordere sie per E-Mail an</a>.</p>'
+  :'<button type="button" class="btn bd blk" id="checkout" style="min-height:56px;font-size:17px"'+(S.busy?' disabled aria-busy="true"':'')+'>'+(S.busy?'Weiter zur Bezahlseite …':'Zur Kasse →')+'</button>'+
+   '<p class="mut" style="margin:0;font-size:14px;text-align:center">Sichere Zahlung über Stripe: Karte oder – je nach Gerät – Apple Pay und Google Pay. Es gelten die <a href="#agb">AGB</a> und die <a href="#widerruf">Widerrufsbelehrung</a>.</p>')+
+ (S.coMsg?'<p role="alert" style="margin:0;padding:12px 14px;background:#EDEDEA;font-size:15px">'+S.coMsg+'</p>':'')+
+ '<p class="mut" style="margin:0;font-size:14px;text-align:center">Fragen zur Bestellung? <a href="tel:+436608743416" style="color:#000;font-weight:600">'+TEL+'</a></p>'+
+ '</div></div></div></section>';
+}
+
+/* ---------- Kasse (Netlify-Funktion → Stripe Checkout) ---------- */
+var CHECKOUT_URL='/.netlify/functions/checkout';
+/* Versandkosten-Text für Warenkorb und FAQ – muss zu VERSAND_CENT / VERSAND_GROSS_CENT in Netlify passen.
+   Beispiel: 'Versand in Österreich: 6,90 €. PUR-Säcke nur zur Abholung.' Leer = Hinweis auf die Bezahlseite. */
+var VERSAND_INFO='Versand in Österreich: 8,90 €, PUR-Säcke 14,90 €.';
+function isPreview(){return location.protocol==='file:'||/localhost|127\.0\.0\.1|github\.io|claude/.test(location.hostname);}
+function checkout(){
+ if(S.busy)return;
+ S.busy=true;S.coMsg='';render('warenkorb');
+ var items=S.cart.filter(function(i){return P[i.id];}).map(function(i){return {id:i.id,q:i.q};});
+ fetch(CHECKOUT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items,ship:S.ship})})
+ .then(function(r){return r.json().catch(function(){return {};}).then(function(d){return {ok:r.ok,status:r.status,d:d};});})
+ .then(function(x){
+  if(x.ok&&x.d.url){location.href=x.d.url;return;}
+  if(!(x.d&&x.d.error)&&isPreview()){S.busy=false;S.coMsg='Die Kasse ist in dieser Vorschau nicht aktiv. Sie funktioniert, sobald die Seite auf Netlify läuft. Bestellen geht jetzt schon per Telefon: '+TEL+'.';render('warenkorb');return;}
+  S.busy=false;S.coMsg=(x.d&&x.d.error)||'Die Kasse ist gerade nicht erreichbar. Bitte versuch es gleich noch einmal oder ruf an: '+TEL+'.';render('warenkorb');
+ })
+ .catch(function(){
+  S.busy=false;S.coMsg=isPreview()?'Die Kasse ist in dieser Vorschau nicht aktiv. Sie funktioniert, sobald die Seite auf Netlify läuft. Bestellen geht jetzt schon per Telefon: '+TEL+'.':'Die Kasse ist gerade nicht erreichbar. Bitte versuch es gleich noch einmal oder ruf an: '+TEL+'.';render('warenkorb');
+ });
+}
+var LEGAL={
+ impressum:['Impressum','<p><b>Mr. NongNong</b><br>Werner Hansmann<br>Hinterbichl 110<br>8831 Niederwölz, Österreich</p><p>Telefon: '+TEL+'<br>E-Mail: <a href="mailto:info@mrnongnong.at">info@mrnongnong.at</a></p><p class="todo" style="padding:12px;background:#EDEDEA">ENTWURF – bitte vor dem Start prüfen und ergänzen: Unternehmensgegenstand, ggf. UID-Nummer, Gewerbe/Behörde (GISA), Mitgliedschaft WKO, Berufsrecht, Hinweis zur Online-Streitbeilegung.</p>'],
+ datenschutz:['Datenschutzerklärung','<p class="todo" style="padding:12px;background:#EDEDEA">Platzhalter – der Text muss vor dem Start ergänzt werden. Er muss u. a. die Zahlungsabwicklung über Stripe, das Hosting bei Netlify, Google Fonts und die Speicherung des Warenkorbs im Browser nennen.</p>'],
+ agb:['Allgemeine Geschäftsbedingungen','<p class="todo" style="padding:12px;background:#EDEDEA">Platzhalter – AGB vor dem Start ergänzen (Vertragsschluss, Preise, Versand und Abholung, Zahlung, Gewährleistung).</p>'],
+ widerruf:['Widerrufsbelehrung','<p class="todo" style="padding:12px;background:#EDEDEA">Platzhalter – Widerrufsbelehrung samt Muster-Widerrufsformular nach FAGG vor dem Start ergänzen.</p>']
+};
+function vLegal(k){var L=LEGAL[k];return '<section class="wrap" style="padding-top:56px;padding-bottom:96px;max-width:820px"><nav aria-label="Brotkrumen" class="mut" style="font-size:14px;margin-bottom:20px"><a href="#start">Start</a> / <span aria-current="page">'+L[0]+'</span></nav><h1 class="h" style="font-size:clamp(32px,5vw,48px);margin-bottom:28px">'+L[0]+'</h1><div style="font-size:17px">'+L[1]+'</div></section>';}
+function vDanke(){
+ return '<section class="wrap" style="padding-top:72px;padding-bottom:104px;max-width:760px">'+
+ '<p class="eb">Bestellung</p><h1 class="h" style="font-size:clamp(36px,5vw,52px);margin-bottom:20px">Danke für deine Bestellung!</h1>'+
+ '<p style="font-size:19px;margin:0 0 12px">Die Zahlungsbestätigung kommt per E-Mail.</p>'+
+ '<p class="mut" style="margin:0 0 32px">Fragen zur Bestellung? Ruf mich an: <a href="tel:+436608743416" style="color:#000;font-weight:600">'+TEL+'</a></p>'+
+ '<div style="display:flex;gap:12px;flex-wrap:wrap"><a href="#start" class="btn bd">Zur Startseite</a><a href="#anwendung" class="btn bl">So wendest du die Kohle an →</a></div></section>';
+}
+
+/* ---------- Router ---------- */
+var SECTIONS=['anwendung','rechner','wirkung','nahrungsnetz','vorteile','ueber-mich','fragen'];
+var app=document.getElementById('app'),cur='';
+function route(){
+ var h=(location.hash||'#start').slice(1)||'start',view=h,scrollTo=null;
+ if(SECTIONS.indexOf(h)>=0){view='start';scrollTo=h;}
+ if(h==='kontakt'){scrollTo='kontakt';view=cur||'start';}
+ if(view.indexOf('produkt-')===0&&!P[view.slice(8)])view='shop';
+ if(['start','shop','warenkorb','danke','impressum','datenschutz','agb','widerruf'].indexOf(view)<0&&view.indexOf('produkt-')!==0)view='start';
+ if(view!==cur){
+  if(view.indexOf('produkt-')===0){S.qty=1;S.gi=0;}
+  S.coMsg='';S.busy=false;
+  if(view==='danke'){S.cart=[];save();}
+  render(view);cur=view;
+  if(!scrollTo)window.scrollTo(0,0);
+ }
+ document.getElementById('menu').classList.remove('open');
+ [].forEach.call(document.querySelectorAll('#nav a'),function(a){var v=a.getAttribute('data-v');a.classList.toggle('on',v===view||(v==='shop'&&view.indexOf('produkt-')===0));if(a.classList.contains('on'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+ if(scrollTo){var el=document.getElementById(scrollTo);if(el)setTimeout(function(){el.scrollIntoView();},30);}
+}
+function render(view){
+ cur=view;
+ var html=LEGAL[view]?vLegal(view):view==='shop'?vShop():view==='warenkorb'?vCart():view==='danke'?vDanke():view.indexOf('produkt-')===0?vProdukt(view.slice(8)):vStart();
+ app.innerHTML=html;bind();upd();
+ document.getElementById('bb').style.visibility=view==='warenkorb'?'hidden':'';
+ document.title=(view==='shop'?'Shop':view==='warenkorb'?'Warenkorb':view==='danke'?'Danke':LEGAL[view]?LEGAL[view][0]:view.indexOf('produkt-')===0?P[view.slice(8)].n:'Startseite')+' · Mr. NongNong';
+}
+function bind(){
+ app.querySelectorAll('[data-add]').forEach(function(b){b.onclick=function(){var id=b.getAttribute('data-add');add(id,1);toast(P[id].n+' – im Warenkorb');b.innerHTML=ICON.check+' Im Warenkorb';setTimeout(function(){if(b.isConnected)b.innerHTML=P[id].price===0?'Gratis mitbestellen':ICON.cart+' In den Warenkorb';},1600);};});
+ bindCalc(app);
+ var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ app.querySelectorAll('video').forEach(function(v){v.muted=true;
+  if(rm||!('IntersectionObserver' in window)){v.controls=true;return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var pp=v.play();if(pp&&pp.catch)pp.catch(function(){v.controls=true;});}else v.pause();});},{rootMargin:'200px 0px'});
+  io.observe(v);});
+ app.querySelectorAll('[data-cat]').forEach(function(b){b.onclick=function(){S.cat=b.getAttribute('data-cat');S.sub=null;render('shop');var r=document.getElementById('shopRes');if(r)r.focus({preventScroll:true});};});
+ app.querySelectorAll('[data-sub]').forEach(function(b){b.onclick=function(){var v=b.getAttribute('data-sub')||null;S.sub=(S.sub===v)?null:v;S.cat='alle';render('shop');if(S.sub){var g=document.getElementById('produkte');if(g)g.scrollIntoView();}var r=document.getElementById('shopRes');if(r)r.focus({preventScroll:true});};});
+ var so=app.querySelector('#sort');if(so)so.onchange=function(){S.sort=so.value;render('shop');};
+ app.querySelectorAll('[data-gi]').forEach(function(b){b.onclick=function(){S.gi=+b.getAttribute('data-gi');render(cur);};});
+ app.querySelectorAll('[data-q]').forEach(function(b){b.onclick=function(){S.qty=Math.max(1,S.qty+(+b.getAttribute('data-q')));document.getElementById('qv').textContent=S.qty;};});
+ var pa=app.querySelector('#pAdd');if(pa)pa.onclick=function(){var id=cur.slice(8);addMany([[id,S.qty]]);};
+ app.querySelectorAll('[data-inc]').forEach(function(b){b.onclick=function(){var it=S.cart.filter(function(i){return i.id===b.getAttribute('data-inc');})[0];if(P[it.id].price===0&&it.q>=1){return;}it.q++;save();render('warenkorb');};});
+ app.querySelectorAll('[data-dec]').forEach(function(b){b.onclick=function(){var it=S.cart.filter(function(i){return i.id===b.getAttribute('data-dec');})[0];it.q=Math.max(1,it.q-1);save();render('warenkorb');};});
+ app.querySelectorAll('[data-del]').forEach(function(b){b.onclick=function(){var id=b.getAttribute('data-del');S.cart=S.cart.filter(function(i){return i.id!==id;});save();render('warenkorb');};});
+ app.querySelectorAll('[data-ship]').forEach(function(b){b.onclick=function(){S.ship=b.getAttribute('data-ship');render('warenkorb');};});
+ var co=app.querySelector('#checkout');if(co)co.onclick=checkout;
+ document.querySelectorAll('[data-maps]').forEach(function(a){a.onclick=function(e){e.preventDefault();};});
+}
+document.getElementById('mOpen').onclick=function(){document.getElementById('menu').classList.add('open');};
+document.getElementById('mClose').onclick=function(){document.getElementById('menu').classList.remove('open');};
+document.querySelectorAll('#menu nav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open');if(a.getAttribute('href')===location.hash)route();});});
+document.querySelector('[data-from]').textContent='ab '+eur(FROM);
+window.addEventListener('pageshow',function(e){if(e.persisted&&S.busy){S.busy=false;render(cur);}});
+window.addEventListener('hashchange',route);
+route();
+})();
+</script>
+</body>
+</html>
